@@ -12,16 +12,16 @@ int main() {
     int taskNumber = studentCode % totalTaskCount;
     cout << "Student code: " << studentCode << " & Task number: " << taskNumber << endl;
 
-    int arrLength;
+    int arrayLength;
     cout << "Enter arrayOfCharacters length: ";
-    cin >> arrLength;
+    cin >> arrayLength;
     cin.ignore();
 
-    char** arrayOfCharacters = new char*[arrLength];
-    string* arrayOfStrings = new string[arrLength];
+    char** arrayOfCharacters = new char*[arrayLength];
+    string* arrayOfStrings = new string[arrayLength];
 
 
-    for (int i = 0; i < arrLength; i++) {
+    for (int i = 0; i < arrayLength; i++) {
         cout << "Enter string: " << i + 1 << " => ";
         string input;
         getline(cin, input);
@@ -32,27 +32,23 @@ int main() {
     }
 
     char searchCharacter;
-    cout << "Enter character to count: ";
+    cout << "Enter search character to count: ";
     cin >> searchCharacter;
     cin.ignore();
 
-
-
-
-    for (int i = 0; i < arrLength; i++) {
+    for (int i = 0; i < arrayLength; i++) {
         cout << "character: " << searchCharacter
              << " appears " << characterCounter(arrayOfCharacters[i], searchCharacter)
-             << " times in c-string "<< i + 1
+             << " times in [c-string]-"<< i + 1
              << " & "
-             << characterCounter(arrayOfStrings[i], searchCharacter) << " times in string " << i + 1 << endl;
+             << characterCounter(arrayOfStrings[i], searchCharacter) << " times in [string]-" << i + 1 << endl;
     }
 
-    for (int i = 0; i < arrLength; i++) {
+    for (int i = 0; i < arrayLength; i++) {
         delete[] arrayOfCharacters[i];
     }
     delete[] arrayOfCharacters;
     delete[] arrayOfStrings;
-
     return 0;
 }
 
